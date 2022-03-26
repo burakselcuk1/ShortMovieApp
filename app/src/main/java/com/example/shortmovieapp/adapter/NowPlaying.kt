@@ -38,10 +38,10 @@ class NowPlaying(private val dataSet: movie) :
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
-        viewHolder.nowPlayingMovieName.text = dataSet.results[position].original_title
-        viewHolder.nowPlayingMovieDescription.text = dataSet.results[position].overview
+        viewHolder.nowPlayingMovieDescription.text = dataSet.results[position].original_title
+        viewHolder.nowPlayingMovieName.text = dataSet.results[position].overview
 
-        val url = Constans.POSTER_MAIN_URL + dataSet.results[position].poster_path
+        val url = Constans.POSTER_MAIN_URL + dataSet.results[position].backdrop_path
         viewHolder.itemView.apply {
             Glide.with(this).load(url).into(viewHolder.itemView.nowPlayingMoviePoster)
         }
