@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.shortmovieapp.R
 import com.example.shortmovieapp.Util.Constans.Companion.POSTER_MAIN_URL
-import com.example.shortmovieapp.model.movie
+import com.example.shortmovieapp.model.Movie
 import kotlinx.android.synthetic.main.single_movie_item.view.*
 
 
-class MovieAdapter(private val dataSet: movie) :
+class MovieAdapter(private val dataSet: Movie) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
