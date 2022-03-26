@@ -24,7 +24,6 @@ class MainPageFragment : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
         _binding = FragmentMainPageBinding.inflate(inflater,container,false)
 
         return binding.root
@@ -33,12 +32,18 @@ class MainPageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        provideViewModel()
+        getMovies()
+    }
+
+    private fun provideViewModel() {
         viewModel = ViewModelProvider(requireActivity()).get(MainPageViewModel::class.java)
+    }
+    private fun getMovies() {
         viewModel._movie.observe(this, Observer {
             adapter = MovieAdapter(it)
             binding.verticalRecyclerview.layoutManager = LinearLayoutManager(context)
             binding.verticalRecyclerview.adapter = adapter
-
         })
     }
 }
