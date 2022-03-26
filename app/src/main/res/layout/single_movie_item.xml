@@ -31,7 +31,6 @@
             android:id="@+id/movieName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:text="Movie Name"
             android:textColor="@color/black"
             android:textSize="26sp"
@@ -45,16 +44,25 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:lines="3"
-            android:maxLines="3"
+            android:lines="2"
+            android:maxLines="2"
             android:text="movie description"
             android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/movieName"
-            app:layout_constraintTop_toBottomOf="@+id/movieName"
-            app:layout_constraintVertical_bias="0.303" />
+            app:layout_constraintTop_toBottomOf="@+id/movieName" />
+
+        <TextView
+            android:id="@+id/movieRealizeDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="dsfasfd"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/movieDescription"
+            app:layout_constraintTop_toBottomOf="@+id/movieDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
