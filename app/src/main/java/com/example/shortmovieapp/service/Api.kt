@@ -13,7 +13,7 @@ interface Api {
     @GET("3/movie/upcoming?")
     suspend fun getUpcomingList(
         @Query("api_key")
-        api_key:String=API_KEY
+        apiKey:String=API_KEY
     ): Response<Movie>
 
     @GET("3/movie/now_playing?")
