@@ -5,7 +5,9 @@ import javax.inject.Inject
 
 class movieRepository @Inject constructor(private val movieApi: Api) {
 
-    suspend fun getMovies()=movieApi.getMovieList()
+    suspend fun getMovies()=movieApi.getUpcomingList()
+
+    suspend fun getNowPlayingList()=movieApi.getNowPlayingList()
 
     suspend fun getMovieDetail(id:String)=movieApi.getMovieDetail(id)
 }
