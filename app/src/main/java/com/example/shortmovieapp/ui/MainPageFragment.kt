@@ -8,9 +8,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.shortmovieapp.R
 import com.example.shortmovieapp.adapter.MovieAdapter
-import com.example.shortmovieapp.adapter.NowPlaying
+import com.example.shortmovieapp.adapter.NowPlayingAdapter
 import com.example.shortmovieapp.databinding.FragmentMainPageBinding
 import com.example.shortmovieapp.viewModel.MainPageViewModel
 
@@ -21,7 +20,7 @@ class MainPageFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var adapter: MovieAdapter
-    private lateinit var nowPlayingAdapter: NowPlaying
+    private lateinit var nowPlayingAdapter: NowPlayingAdapter
     private lateinit var viewModel: MainPageViewModel
 
 
@@ -52,7 +51,7 @@ class MainPageFragment : Fragment() {
 
     private fun getNowPlayinMovies() {
         viewModel._nowPlaying.observe(this, Observer {
-            nowPlayingAdapter = NowPlaying(it)
+            nowPlayingAdapter = NowPlayingAdapter(it)
             binding.horizontalRecyclerview.layoutManager=LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
             binding.horizontalRecyclerview.adapter = nowPlayingAdapter
         })
