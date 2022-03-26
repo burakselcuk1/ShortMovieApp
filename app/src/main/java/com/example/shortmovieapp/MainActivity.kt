@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity() {
         setupSmoothBottomMenu()
     }
 
+
+
     // Bottom navigation menu setup
     private fun setupSmoothBottomMenu() {
         val popupMenu = PopupMenu(this, null)
