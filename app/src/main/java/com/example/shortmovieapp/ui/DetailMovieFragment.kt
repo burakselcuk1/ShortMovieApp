@@ -48,10 +48,12 @@ class DetailMovieFragment : Fragment() {
         viewModel._movieDetail.observe(this, Observer {
             it.let {
                 resultMovie=it
-                movieDetailName.text = resultMovie.original_title
+                binding.movieDetailName.text = resultMovie.original_title
+                binding.MovieDetailAvarage.text = resultMovie.vote_average.toString()+"/10"
+                binding.MovieDetailRealizeDate.text = resultMovie.release_date
                 val url= POSTER_MAIN_URL + resultMovie.poster_path
-                Glide.with(this).load(url).into(movieDetailPoster)
-                movieDetailDescription.text = resultMovie.overview
+                Glide.with(this).load(url).into(binding.movieDetailPoster)
+                binding.movieDetailDescription.text = resultMovie.overview
             }
         })
     }
