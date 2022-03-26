@@ -14,10 +14,23 @@ import javax.inject.Inject
 class MainPageViewModel @Inject constructor(private val repository: movieRepository):ViewModel() {
 
     val _movie = MutableLiveData<movie>()
+    val _nowPlaying = MutableLiveData<movie>()
 
     init {
         getMovies()
+        getNowPlaying()
     }
+
+    private fun getNowPlaying()=viewModelScope.launch {
+        repository.getNowPlayingList().let { responseNowPlaying ->
+            if (responseNowPlaying.isSuccessful){
+                _nowPlaying.postValue(responseNowPlaying.body())
+            }else{
+                Log.e("Brk:MainPageViewModel","error Now Playing")
+            }
+        }
+    }
+
     fun getMovies()=viewModelScope.launch {
         repository.getMovies().let {response ->
             if (response.isSuccessful){
