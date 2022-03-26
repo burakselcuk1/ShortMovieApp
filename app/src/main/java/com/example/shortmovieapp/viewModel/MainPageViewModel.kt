@@ -4,17 +4,17 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.shortmovieapp.model.movie
-import com.example.shortmovieapp.repository.movieRepository
+import com.example.shortmovieapp.model.Movie
+import com.example.shortmovieapp.repository.MovieRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainPageViewModel @Inject constructor(private val repository: movieRepository):ViewModel() {
+class MainPageViewModel @Inject constructor(private val repository: MovieRepository):ViewModel() {
 
-    val _movie = MutableLiveData<movie>()
-    val _nowPlaying = MutableLiveData<movie>()
+    val _movie = MutableLiveData<Movie>()
+    val _nowPlaying = MutableLiveData<Movie>()
 
     init {
         getMovies()
