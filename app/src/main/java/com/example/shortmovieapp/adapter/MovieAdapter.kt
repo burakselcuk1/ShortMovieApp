@@ -18,13 +18,15 @@ class MovieAdapter(private val dataSet: Movie) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView
+        val movieName: TextView
         val movieDescription: TextView
+        val movieRealizeDate: TextView
 
         init {
             // Define click listener for the ViewHolder's View.
-            textView = view.findViewById(R.id.movieName)
+            movieName = view.findViewById(R.id.movieName)
             movieDescription = view.findViewById(R.id.movieDescription)
+            movieRealizeDate = view.findViewById(R.id.movieRealizeDate)
         }
     }
 
@@ -37,8 +39,9 @@ class MovieAdapter(private val dataSet: Movie) :
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
-        viewHolder.textView.text = dataSet.results[position].original_title
+        viewHolder.movieName.text = dataSet.results[position].original_title
         viewHolder.movieDescription.text = dataSet.results[position].overview
+        viewHolder.movieRealizeDate.text = dataSet.results[position].release_date
 
         val url = POSTER_MAIN_URL + dataSet.results[position].poster_path
         viewHolder.itemView.apply {
