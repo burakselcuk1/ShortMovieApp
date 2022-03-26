@@ -10,13 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.shortmovieapp.R
 import com.example.shortmovieapp.Util.Constans
-import com.example.shortmovieapp.model.movie
-import kotlinx.android.synthetic.main.single_movie_item.view.*
+import com.example.shortmovieapp.model.Movie
 import kotlinx.android.synthetic.main.single_movie_item_now_playing.view.*
 
 
-class NowPlaying(private val dataSet: movie) :
-    RecyclerView.Adapter<NowPlaying.ViewHolder>() {
+class NowPlayingAdapter(private val dataSet: Movie) :
+    RecyclerView.Adapter<NowPlayingAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nowPlayingMovieName: TextView
@@ -39,7 +38,7 @@ class NowPlaying(private val dataSet: movie) :
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
         viewHolder.nowPlayingMovieDescription.text = dataSet.results[position].original_title
-        viewHolder.nowPlayingMovieName.text = dataSet.results[position].overview
+        viewHolder.nowPlayingMovieName.text = dataSet.results[position].overview.substring(0,80)+".."
 
         val url = Constans.POSTER_MAIN_URL + dataSet.results[position].backdrop_path
         viewHolder.itemView.apply {
