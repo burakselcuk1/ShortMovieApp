@@ -82,6 +82,8 @@
             android:id="@+id/saveMovieToRoomDb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#FFFF7B00"
+            android:textColor="@color/white"
             android:text="save"
             app:layout_constraintBottom_toBottomOf="@+id/movieDetailName"
             app:layout_constraintEnd_toEndOf="parent"
