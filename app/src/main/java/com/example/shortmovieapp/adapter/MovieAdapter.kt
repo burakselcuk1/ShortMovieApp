@@ -50,7 +50,7 @@ class MovieAdapter(private val dataSet: Movie) :
             val bundle = Bundle()
             bundle.putSerializable("movieId",""+dataSet.results.get(position).id)
             val navigationController = Navigation.findNavController(viewHolder.itemView)
-            navigationController.navigate(R.id.action_mainPageFragment_to_savedMovieFragment,bundle!!)
+            navigationController.navigate(R.id.action_mainPageFragment_to_detailMovieFragment,bundle!!)
         }
     }
 
