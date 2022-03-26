@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
 }
@@ -12,6 +13,7 @@ android {
     defaultConfig {
         applicationId "com.example.shortmovieapp"
         minSdkVersion 16
+        multiDexEnabled true
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
@@ -77,5 +79,9 @@ dependencies {
 
     //Bottom navigation bar
     implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.8'
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
 
 }
