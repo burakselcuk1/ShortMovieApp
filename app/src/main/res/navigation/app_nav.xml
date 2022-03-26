@@ -11,8 +11,8 @@
         android:label="Anasayfa"
         tools:layout="@layout/fragment_main_page" >
         <action
-            android:id="@+id/action_mainPageFragment_to_savedMovieFragment"
-            app:destination="@id/savedMovieFragment" />
+            android:id="@+id/action_mainPageFragment_to_detailMovieFragment"
+            app:destination="@id/detailMovieFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment2"
@@ -24,4 +24,9 @@
         android:name="com.example.shortmovieapp.ui.SavedMovieFragment"
         android:label="Favoriler"
         tools:layout="@layout/fragment_saved_movie" />
+    <fragment
+        android:id="@+id/detailMovieFragment"
+        android:name="com.example.shortmovieapp.ui.DetailMovieFragment"
+        android:label="Film Detay"
+        tools:layout="@layout/fragment_detail_movie" />
 </navigation>
