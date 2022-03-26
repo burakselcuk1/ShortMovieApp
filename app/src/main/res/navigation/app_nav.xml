@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mainPageFragment"
         android:name="com.example.shortmovieapp.ui.MainPageFragment"
-        android:label="fragment_main_page"
+        android:label="Anasayfa"
         tools:layout="@layout/fragment_main_page" >
         <action
             android:id="@+id/action_mainPageFragment_to_savedMovieFragment"
@@ -17,11 +17,11 @@
     <fragment
         android:id="@+id/profileFragment2"
         android:name="com.example.shortmovieapp.ui.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="Profil"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/savedMovieFragment"
         android:name="com.example.shortmovieapp.ui.SavedMovieFragment"
-        android:label="fragment_saved_movie"
+        android:label="Favoriler"
         tools:layout="@layout/fragment_saved_movie" />
 </navigation>
