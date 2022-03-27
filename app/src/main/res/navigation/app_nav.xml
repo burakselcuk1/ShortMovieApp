@@ -27,7 +27,11 @@
         android:id="@+id/savedMovieFragment"
         android:name="com.example.shortmovieapp.ui.SavedMovieFragment"
         android:label="Favoriler"
-        tools:layout="@layout/fragment_saved_movie" />
+        tools:layout="@layout/fragment_saved_movie" >
+        <action
+            android:id="@+id/action_savedMovieFragment_to_savedMovieDetailFragment"
+            app:destination="@id/savedMovieDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailMovieFragment"
         android:name="com.example.shortmovieapp.ui.DetailMovieFragment"
@@ -40,10 +44,19 @@
     <fragment
         android:id="@+id/updateProfileFragment"
         android:name="com.example.shortmovieapp.ui.UpdateProfileFragment"
-        android:label="Profilini Güncelle"
+        android:label="Profil Güncelle"
         tools:layout="@layout/fragment_update_profile" >
         <action
             android:id="@+id/action_updateProfileFragment_to_profileFragment2"
             app:destination="@id/profileFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedMovieDetailFragment"
+        android:name="com.example.shortmovieapp.ui.SavedMovieDetailFragment"
+        android:label="Favori Film Detay"
+        tools:layout="@layout/fragment_saved_movie_detail" >
+        <action
+            android:id="@+id/action_savedMovieDetailFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment" />
     </fragment>
 </navigation>
