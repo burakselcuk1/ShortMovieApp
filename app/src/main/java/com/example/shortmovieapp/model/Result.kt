@@ -1,9 +1,11 @@
 package com.example.shortmovieapp.model
 
+import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
+@Entity(tableName = "movie_data")
 data class Result(
     val adult: Boolean,
     val backdrop_path: String,
