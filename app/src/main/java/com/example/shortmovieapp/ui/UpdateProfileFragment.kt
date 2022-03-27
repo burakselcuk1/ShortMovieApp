@@ -103,8 +103,8 @@ class UpdateProfileFragment : Fragment() {
         database = FirebaseDatabase.getInstance().getReference("users")
         auth = FirebaseAuth.getInstance()
         val uid = auth.currentUser?.uid
-        var username = binding.updateUserUsername.text.toString()
-        var phone = binding.updateUserPhone.text.toString()
+        val username = binding.updateUserUsername.text.toString()
+        val phone = binding.updateUserPhone.text.toString()
 
         if (uid!= null){
             database.child(uid).setValue(FireBaseUserProfile(username,phone, profileImageUrl.toString())).addOnSuccessListener {
