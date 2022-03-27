@@ -28,5 +28,9 @@
         android:id="@+id/detailMovieFragment"
         android:name="com.example.shortmovieapp.ui.DetailMovieFragment"
         android:label="Film Detay"
-        tools:layout="@layout/fragment_detail_movie" />
+        tools:layout="@layout/fragment_detail_movie" >
+        <action
+            android:id="@+id/action_detailMovieFragment_to_savedMovieFragment"
+            app:destination="@id/savedMovieFragment" />
+    </fragment>
 </navigation>
