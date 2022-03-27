@@ -30,21 +30,12 @@ class SavedMovieAdapter(private val dataSet: ArrayList<Result>) :
             realizeDate = view.findViewById(R.id.savedMovieRealizeDate)
         }
     }
-
-    // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.saved_movie_single_item, viewGroup, false)
-
         return ViewHolder(view)
     }
-
-    // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-
-        // Get element from your dataset at this position and replace the
-        // contents of the view with that element
         viewHolder.movieName.text = dataSet[position].original_title
         viewHolder.overview.text = dataSet[position].overview
         viewHolder.realizeDate.text = dataSet[position].release_date
@@ -61,8 +52,6 @@ class SavedMovieAdapter(private val dataSet: ArrayList<Result>) :
 
         // Goes to saved_movie_detail_fragment
         viewHolder.itemView.setOnClickListener {
-
-
         }
     }
     // Return the size of your dataset (invoked by the layout manager)
