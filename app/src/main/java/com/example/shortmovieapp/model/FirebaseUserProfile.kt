@@ -1,6 +1,6 @@
 package com.example.shortmovieapp.model
 
-data class FireBaseUserProfile(
+data class FirebaseUserProfile(
     val username: String,
     val phone: String,
     val imageUrl: String)
