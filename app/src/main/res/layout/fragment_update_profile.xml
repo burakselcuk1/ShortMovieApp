@@ -5,25 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundprofile"
-    tools:context=".ui.ProfileFragment">
-
+    tools:context=".ui.UpdateProfileFragment">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circle_image_profile"
+        android:id="@+id/circleImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/userProfilePicture" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/userProfilePicture"
+        android:id="@+id/uploadImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/ic_baseline_account_circle_24"
-        app:layout_constraintBottom_toTopOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.2"
         app:layout_constraintHorizontal_bias="0.498"
@@ -32,42 +29,16 @@
         app:layout_constraintVertical_bias="0.078"
         app:layout_constraintWidth_percent="0.2" />
 
-    <TextView
-        android:id="@+id/usernameProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Burak Selcuk"
-        android:textColor="@color/white"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/view2"
-        app:layout_constraintEnd_toEndOf="@+id/userProfilePicture"
-        app:layout_constraintStart_toStartOf="@+id/userProfilePicture"
-        app:layout_constraintTop_toBottomOf="@+id/userProfilePicture" />
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:outlineAmbientShadowColor="#000000"
-        android:layout_marginTop="184dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.15"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@android:drawable/dialog_holo_light_frame"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.8">
-    </View>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintHeight_percent="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintWidth_percent="0.6">
 
         <ImageView
@@ -80,15 +51,14 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintWidth_percent="0.15" />
 
-        <TextView
-            android:id="@+id/phoneProfile"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/updateUserPhone"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="+90 551 3883258"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:hint="phone number"
+            android:textSize="14dp"
             app:layout_constraintStart_toEndOf="@+id/imageView4"
             app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
@@ -105,27 +75,24 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView4"
             app:layout_constraintWidth_percent="0.15" />
 
-        <TextView
-            android:id="@+id/usernameeProfile"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/updateUserUsername"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:gravity="center"
-            android:text="  dewilsteam"
-            android:textStyle="bold"
+            android:hint="username"
+            android:textSize="14dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.368"
             app:layout_constraintStart_toEndOf="@+id/imageView6"
             app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/goesToProfileUpdateFragment"
+        android:id="@+id/updateUserButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/purple_200"
-        android:text="güncelleme paneline git"
+        android:text="UPDATE"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
@@ -133,8 +100,20 @@
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.361"
+        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintWidth_percent="0.5" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="Resim seçmek içn üstteki icona tıklayın"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circleImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

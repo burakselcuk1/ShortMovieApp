@@ -18,7 +18,11 @@
         android:id="@+id/profileFragment2"
         android:name="com.example.shortmovieapp.ui.ProfileFragment"
         android:label="Profil"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment2_to_updateProfileFragment"
+            app:destination="@id/updateProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/savedMovieFragment"
         android:name="com.example.shortmovieapp.ui.SavedMovieFragment"
@@ -32,5 +36,14 @@
         <action
             android:id="@+id/action_detailMovieFragment_to_savedMovieFragment"
             app:destination="@id/savedMovieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateProfileFragment"
+        android:name="com.example.shortmovieapp.ui.UpdateProfileFragment"
+        android:label="Profilini Güncelle"
+        tools:layout="@layout/fragment_update_profile" >
+        <action
+            android:id="@+id/action_updateProfileFragment_to_profileFragment2"
+            app:destination="@id/profileFragment2" />
     </fragment>
 </navigation>
