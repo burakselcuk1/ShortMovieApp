@@ -72,7 +72,7 @@ class MainPageFragment : Fragment() {
 
             })
             binding.swipeReflesh.isRefreshing = false
-            Toast.makeText(requireContext(),"Refleshed!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(),"Yenilendi!", Toast.LENGTH_SHORT).show()
         }
     }
 }
