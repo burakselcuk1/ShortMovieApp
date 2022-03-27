@@ -14,7 +14,6 @@ class DetailMovieViewModel @Inject constructor(private val repository: MovieRepo
 
     val _movieDetail = MutableLiveData<Result>()
 
-
     fun getMovieDetail(id:String)=viewModelScope.launch {
         repository.getMovieDetail(id).let {response ->
             if (response.isSuccessful){
@@ -22,5 +21,4 @@ class DetailMovieViewModel @Inject constructor(private val repository: MovieRepo
             }
         }
     }
-
 }
