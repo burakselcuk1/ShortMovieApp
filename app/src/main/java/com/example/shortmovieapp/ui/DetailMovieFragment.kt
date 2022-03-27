@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.shortmovieapp.R
 import com.example.shortmovieapp.Util.Constans.Companion.POSTER_MAIN_URL
@@ -27,7 +28,6 @@ class DetailMovieFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         _binding = FragmentDetailMovieBinding.inflate(inflater,container,false)
-
         return binding.root
     }
 
@@ -38,10 +38,10 @@ class DetailMovieFragment : Fragment() {
         val movieId: String? = args?.getString("movieId","databoss")
 
         provideViewModel()
-
         viewModel.getMovieDetail(movieId.toString())
 
         getDetailInformations()
+        passDataToSavedMovieFragmentForSaveRoomDb()
     }
 
     private fun getDetailInformations() {
@@ -59,5 +59,17 @@ class DetailMovieFragment : Fragment() {
     }
     private fun provideViewModel() {
         viewModel = ViewModelProvider(requireActivity()).get(DetailMovieViewModel::class.java)
+    }
+    private fun passDataToSavedMovieFragmentForSaveRoomDb() {
+        binding.saveMovieToRoomDb.setOnClickListener {
+            val bundle = Bundle()
+            resultMovie.let {
+                bundle.putSerializable("movie", resultMovie)
+                val navigationController = view?.let { it1 -> Navigation.findNavController(it1) }
+                if (navigationController != null) {
+                    navigationController.navigate(R.id.action_detailMovieFragment_to_savedMovieFragment, bundle)
+                }
+            }
+        }
     }
 }
