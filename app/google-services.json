@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1052477433154",
+    "project_id": "shortmovieapp-6dd4d",
+    "storage_bucket": "shortmovieapp-6dd4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052477433154:android:8a6e62acc21375f5d654db",
+        "android_client_info": {
+          "package_name": "com.example.shortmovieapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052477433154-kajssb28g53g028kah5a24rl307incbk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRPexu2N8odIor1gBzzbGso8cWDBAgKv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1052477433154-kajssb28g53g028kah5a24rl307incbk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
