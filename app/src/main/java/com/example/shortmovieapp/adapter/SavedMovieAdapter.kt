@@ -50,10 +50,15 @@ class SavedMovieAdapter(private val dataSet: ArrayList<Result>) :
         viewHolder.overview.text = result.overview
         viewHolder.movieName.text = result.original_title
 
-        // Goes to saved_movie_detail_fragment
+        // Goes to SavedMovieDetailFragment
         viewHolder.itemView.setOnClickListener {
+
+            val bundle = Bundle()
+            bundle.putString("movieIdd", ""+result.id)
+
+            val navigationController = Navigation.findNavController(viewHolder.itemView)
+            navigationController.navigate(R.id.action_savedMovieFragment_to_savedMovieDetailFragment,bundle!!)
         }
     }
-    // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = dataSet.size
 }
