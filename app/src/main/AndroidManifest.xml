@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ShortMovieApp">
-        <activity android:name=".ui.SplashActivity"
+        <activity android:name=".ui.RegisterActivity"></activity>
+        <activity android:name=".ui.LoginActivity" />
+        <activity
+            android:name=".ui.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,11 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-           >
-
-        </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
