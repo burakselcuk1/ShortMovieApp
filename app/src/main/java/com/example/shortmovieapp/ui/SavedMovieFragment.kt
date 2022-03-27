@@ -36,7 +36,6 @@ class SavedMovieFragment : Fragment() {
         provideViewModel()
         getMovie()
         readAllMovies()
-
     }
 
     private fun provideViewModel() {
@@ -64,7 +63,6 @@ class SavedMovieFragment : Fragment() {
                     singleMovieData.vote_average,
                     singleMovieData.vote_count
                 )
-
                 savedMovieViewModel.addMovie(saveMovie)
             }
         }
@@ -77,5 +75,4 @@ class SavedMovieFragment : Fragment() {
             binding.savedMovieRecyclerview.adapter = roomAdapter
         })
     }
-
 }
