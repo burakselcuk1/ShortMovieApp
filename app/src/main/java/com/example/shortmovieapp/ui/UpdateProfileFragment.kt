@@ -54,27 +54,26 @@ class UpdateProfileFragment : Fragment() {
     }
 
     private fun uploadImageToFirebaseStorage() {
-        var username = binding.updateUserUsername.text.toString()
-        var phone = binding.updateUserPhone.text.toString()
+        val username = binding.updateUserUsername.text.toString()
+        val phone = binding.updateUserPhone.text.toString()
 
         //Checking Phone is Empty or not
          if (phone.isEmpty()){
-            Toast.makeText(context,"Please Enter An Phone Number", Toast.LENGTH_SHORT).show()
-
+            Toast.makeText(context,"Lütfen Telefon Numaranızı Girin", Toast.LENGTH_SHORT).show()
         }
         //Checking Username is Empty or not
         else if (username.isEmpty()){
-            Toast.makeText(context,"Please Enter An UserName", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,"Lütfen Kullanıcı Adınızı Girin", Toast.LENGTH_SHORT).show()
 
         }
         //Checking Image is Empty or not
         else if (circleImage.getDrawable() == null){
-            Toast.makeText(context,"Please select a photo", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,"Lütfen Profil Resminizi Seçin", Toast.LENGTH_SHORT).show()
 
         }
         else{
             val progressDialog = ProgressDialog(context)
-            progressDialog.setMessage("Uploading file...")
+            progressDialog.setMessage("Yükleniyor...")
             progressDialog.setCancelable(false)
             progressDialog.show()
 
@@ -85,22 +84,19 @@ class UpdateProfileFragment : Fragment() {
 
             storage.putFile(ImageUrl)
                 .addOnSuccessListener {
-
                     binding.uploadImage.setImageURI(null)
-                    Toast.makeText(context,"SUSCESSFULLY ADDED!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context,"BAŞARILI!", Toast.LENGTH_SHORT).show()
                     if (progressDialog.isShowing) progressDialog.dismiss()
                     storage.downloadUrl.addOnSuccessListener {
                         Log.d("UpdateProfileFragment","File Location: $it")
                         saveUserToFirebaseDatabase(it.toString())
                         findNavController().navigate(R.id.action_updateProfileFragment_to_profileFragment2)
                     }
-
                 }.addOnFailureListener{
                     if (progressDialog.isShowing) progressDialog.dismiss()
-
                     Toast.makeText(context,"FAIL", Toast.LENGTH_SHORT).show()
-                }
-        }
+          }
+       }
     }
 
     private fun saveUserToFirebaseDatabase(profileImageUrl: String) {
@@ -111,12 +107,8 @@ class UpdateProfileFragment : Fragment() {
         var phone = binding.updateUserPhone.text.toString()
 
         if (uid!= null){
-
             database.child(uid).setValue(FireBaseUserProfile(username,phone, profileImageUrl.toString())).addOnSuccessListener {
-
                 Toast.makeText(context,"SUSCESSFULLY ADDED NAME!", Toast.LENGTH_SHORT).show()
-                //val action = UpdataProfileFragmentDirections.actionUpdataProfileFragmentToFourthFragment()
-                //  Navigation.findNavController(view).navigate(action)
             }.addOnFailureListener{
                 Toast.makeText(context,"FAILADANA!", Toast.LENGTH_SHORT).show()
             }
@@ -129,6 +121,7 @@ class UpdateProfileFragment : Fragment() {
         intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(intent,0)
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 

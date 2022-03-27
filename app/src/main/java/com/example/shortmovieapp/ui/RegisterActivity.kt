@@ -35,18 +35,18 @@ class RegisterActivity : AppCompatActivity() {
 
 
         if(registerEmail.isEmpty()){
-            Toast.makeText(this,"E-mail can not be empty!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"E-posta adresiniz boş olamaz!", Toast.LENGTH_SHORT).show()
         }
         else if(!Patterns.EMAIL_ADDRESS.matcher(registerEmail).matches()){
-            Toast.makeText(this,"Invalid E-mail adress!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Geçersiz E-posta Adresi", Toast.LENGTH_SHORT).show()
 
         }
         else if(registerPassword.isEmpty()){
-            Toast.makeText(this,"Password can not be empty!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Şifreniz adresiniz boş olamaz!", Toast.LENGTH_SHORT).show()
         }
         else{
             firebaseAuth.createUserWithEmailAndPassword(registerEmail,registerPassword).addOnSuccessListener {
-                Toast.makeText(this,"User Created!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Hesap Oluşturuldu!", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this,LoginActivity::class.java)
                 startActivity(intent)
             }.addOnFailureListener {

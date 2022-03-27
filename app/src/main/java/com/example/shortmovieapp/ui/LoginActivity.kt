@@ -47,23 +47,23 @@ class LoginActivity : AppCompatActivity() {
 
         //check e-mail empty or not
         if(loginemail.isEmpty()){
-            Toast.makeText(this,"E-mail can not be empty!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"E-posta adresiniz boş olamaz!", Toast.LENGTH_SHORT).show()
         }
         // compare e-mail adreess with real e-mail type
         else if(!Patterns.EMAIL_ADDRESS.matcher(loginemail).matches()){
-            Toast.makeText(this,"Invalid E-mail adress!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Geçersiz E-posta adresi!", Toast.LENGTH_SHORT).show()
 
         }
         //check password is empty or not
         else if(loginPassword.isEmpty()){
-            Toast.makeText(this,"Password can not be empty!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Şifreniz boş olamaz!!", Toast.LENGTH_SHORT).show()
         }
         else{
             firebaseAuth.signInWithEmailAndPassword(loginemail,loginPassword).addOnSuccessListener {
                 val intent = Intent(this,MainActivity::class.java)
                 startActivity(intent)
             }.addOnFailureListener{
-                Toast.makeText(this,"User didn't find!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Kullanıcı Bulunamadı!", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -71,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
     private fun checkUser() {
         val firebase = firebaseAuth.currentUser
         if (firebase != null){
-            Toast.makeText(this,"Welcome", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Hoşgeldiniz", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }

@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.logout -> {
-                Toast.makeText(this,"Logget Out!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Çıkış Yapıldı!", Toast.LENGTH_SHORT).show()
                 firebaseAuth.signOut()
                 startActivity(
                     Intent(this, LoginActivity::class.java)
