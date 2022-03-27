@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,7 @@ import com.example.shortmovieapp.databinding.FragmentDetailMovieBinding
 import com.example.shortmovieapp.databinding.FragmentSavedMovieBinding
 import com.example.shortmovieapp.model.Result
 import com.example.shortmovieapp.viewModel.SavedMovieViewModel
+import kotlinx.android.synthetic.main.fragment_saved_movie.*
 
 
 class SavedMovieFragment : Fragment() {
@@ -36,7 +38,12 @@ class SavedMovieFragment : Fragment() {
         provideViewModel()
         getMovie()
         readAllMovies()
+
+        binding.swipeRefleshForSavedMovie.setOnRefreshListener {
+            swipeRefleshSavedMovie()
+        }
     }
+
 
     private fun provideViewModel() {
         savedMovieViewModel = ViewModelProvider(requireActivity()).get(SavedMovieViewModel::class.java)
@@ -74,5 +81,18 @@ class SavedMovieFragment : Fragment() {
             roomAdapter = SavedMovieAdapter(it as ArrayList<Result>)
             binding.savedMovieRecyclerview.adapter = roomAdapter
         })
+    }
+
+    private fun swipeRefleshSavedMovie() {
+        binding.savedMovieRecyclerview.visibility = View.GONE
+        savedMovieViewModel.readAllData.observe(viewLifecycleOwner, Observer {
+            binding.savedMovieRecyclerview.layoutManager = LinearLayoutManager(context)
+            roomAdapter = SavedMovieAdapter(it as ArrayList<Result>)
+            binding.savedMovieRecyclerview.adapter = roomAdapter
+            binding.savedMovieRecyclerview.visibility = View.VISIBLE
+        })
+        binding.swipeRefleshForSavedMovie.isRefreshing = false
+        Toast.makeText(requireContext(),"Yenilendi!", Toast.LENGTH_SHORT).show()
+
     }
 }
