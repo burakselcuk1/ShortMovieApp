@@ -13,9 +13,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.shortmovieapp.R
-import com.example.shortmovieapp.databinding.FragmentProfileBinding
 import com.example.shortmovieapp.databinding.FragmentUpdateProfileBinding
-import com.example.shortmovieapp.model.FireBaseUserProfile
+import com.example.shortmovieapp.model.FirebaseUserProfile
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -107,7 +106,7 @@ class UpdateProfileFragment : Fragment() {
         val phone = binding.updateUserPhone.text.toString()
 
         if (uid!= null){
-            database.child(uid).setValue(FireBaseUserProfile(username,phone, profileImageUrl.toString())).addOnSuccessListener {
+            database.child(uid).setValue(FirebaseUserProfile(username,phone, profileImageUrl.toString())).addOnSuccessListener {
                 Toast.makeText(context,"SUSCESSFULLY ADDED NAME!", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener{
                 Toast.makeText(context,"FAILADANA!", Toast.LENGTH_SHORT).show()
