@@ -51,9 +51,7 @@ class RegisterActivity : AppCompatActivity() {
                 startActivity(intent)
             }.addOnFailureListener {
                 Toast.makeText(this,"Error!", Toast.LENGTH_SHORT).show()
-
             }
-
         }
     }
 }
