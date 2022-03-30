@@ -1,15 +1,17 @@
 package com.example.shortmovieapp.ui
 
+import android.R.attr.password
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
-import com.example.shortmovieapp.R
-import com.example.shortmovieapp.databinding.ActivityLoginBinding
+import androidx.appcompat.app.AppCompatActivity
 import com.example.shortmovieapp.databinding.ActivityRegisterBinding
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_register.*
+
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -22,12 +24,14 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
-
         binding.registerButton.setOnClickListener {
-            createNewUser()
-
+            checkEmailExistsOrNot()
         }
     }
+
+    private fun checkEmailExistsOrNot() {
+        createNewUser()   }
+
 
     private fun createNewUser() {
         val registerEmail = binding.registerEmail.text.toString().trim()
@@ -45,15 +49,15 @@ class RegisterActivity : AppCompatActivity() {
             Toast.makeText(this,"Şifreniz adresiniz boş olamaz!", Toast.LENGTH_SHORT).show()
         }
         else{
-            firebaseAuth.createUserWithEmailAndPassword(registerEmail,registerPassword).addOnSuccessListener {
-                Toast.makeText(this,"Hesap Oluşturuldu!", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this,LoginActivity::class.java)
-                startActivity(intent)
+            firebaseAuth.createUserWithEmailAndPassword(registerEmail,registerPassword).addOnCompleteListener() {
+                if (it.isSuccessful){
+                    Toast.makeText(this,"Hesap Oluşturuldu!", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this,LoginActivity::class.java)
+                    startActivity(intent)
+                }
             }.addOnFailureListener {
-                Toast.makeText(this,"Error!", Toast.LENGTH_SHORT).show()
-
+                Toast.makeText(this,"Böyle bir kullanıcı var!", Toast.LENGTH_SHORT).show()
             }
-
         }
     }
 }
